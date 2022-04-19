@@ -1,0 +1,165 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to bottom,rgb(236, 243, 245), #fff);
+}
+#logo{
+    margin: 10px 0px 10px 0px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5rem;
+}
+#main-cont{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+#left-cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#cadeado{
+    width: 25vw;
+    filter: drop-shadow(10px 10px 3px #222);
+}
+#right-cont{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-evenly;
+}
+#main-h1{
+    font-family:'Poppins', sans-serif;
+    margin-right: 2%;
+}
+#p-main-h1{
+    font-family:'Poppins', sans-serif;
+    font-weight: 500;
+    margin-right: 2%;
+    font-size: 1.2rem;
+
+    position: relative;
+    bottom: 20px;
+}
+#campo-texto{
+    overflow: scroll;
+}
+#campo-texto{
+    max-width: 50%;
+    max-height: 15vh;
+    min-width: 25%;
+    min-height: 10vh;
+    align-self: center;
+
+    background: rgba( 107, 221, 221, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 20px );
+    -webkit-backdrop-filter: blur( 20px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    outline: none;
+    border-color: transparent;
+    overflow-x: auto;
+    font-size: 1.2rem;
+    font-weight: 300;
+    padding: 0.5rem;
+}
+#btn-colection{
+    align-self: center;
+}
+button{
+    margin: 15px;
+    background: rgb(28, 111, 235);
+    color: #fff;
+
+    padding: 5px;
+
+    border: none;
+    border-radius: 10px;
+
+    width: 20em;
+    position: relative;
+    bottom: 0px;
+    transition: all 0.3s;
+
+    cursor: pointer;
+}
+button:hover{
+    bottom: 3px
+}
+#segundaSessao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: linear-gradient(to bottom,#fff,rgb(203, 238, 203));
+}
+#resposta-texto{
+    background: rgba( 107, 221, 221, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 20px );
+    -webkit-backdrop-filter: blur( 20px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    outline: none;
+    border-color: transparent;
+    overflow-x: auto;
+    font-size: 1.2rem;
+    font-weight: 300;
+    padding: 0.5rem;
+
+    max-width: 50%;
+    max-height: 15vh;
+    min-width: 25%;
+    min-height: 10vh;
+
+    margin-top: 2%;
+}
+#copy-btn{
+    width: 15rem;
+    height: 50px;
+}
+#terceiraSessao{
+    display: flex;
+    justify-content: space-evenly;
+    background-image: linear-gradient(to bottom,rgb(203, 238, 203),rgb(167, 197, 167));
+}
+#h1-cryptoText{
+    font-size: 2.5em;
+    text-align: center;
+    margin: 80px 0px 80px 0px;
+}
+#parag-cryptoText{
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    margin-left: 50px;
+}
+#duvida-boneco{
+    width: 18%;
+
+}
+#socialMedia{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to bottom,rgb(167, 197, 167),rgb(189, 228, 241));
+}
+.socialMediaIcons{
+    width: 3.5vw;
+    padding: 10px;
+}
+::-webkit-scrollbar{
+    width: 12px; 
+}
+::-webkit-scrollbar-thumb{
+    background: rgb(133, 178, 223,0.3);
+    border-radius: 12px;
+}
+::-webkit-resizer{
+    background: rgb(133, 178, 223,0.3)
+}
