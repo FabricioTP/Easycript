@@ -10,13 +10,6 @@ const btnEncrypt = document.querySelectorAll("button")[0]
 const btnDcrypt = document.querySelectorAll("button")[1]
 
 
-/*A função abaixo recebe o valor do primeiro textarea e a armazena na 
-variavel "textoAtual" e recebe a string passada pelo usuario em caixa baixa.
-Logo após é iniciado um loop de for, onde dentro do mesmo existe um switch
-para trocar cada caractere que o usuario escreveu para o codigo encriptado;
-após isso, a função formata o texto e passa o texto formatado como valor do
-segundo textarea*/
-
 function encriptar(){
     textoAtual = campoTexto.value
     textoAtual = textoAtual.toLowerCase()
@@ -100,6 +93,11 @@ function encriptar(){
                 case textoAtual[i] == "z":
                         textoNovo.push("Az")
                         break;
+                case textoAtual[i] == " ":
+                        textoNovo.push("OO")
+                        break;
+                default:
+                        textoNovo="Não foi possivel realizar criptografia: caracter invalido."
                 }
             }
         let textoArray = textoNovo.toString()
@@ -108,33 +106,23 @@ function encriptar(){
             campoResultado.value=textoFormatado;
             textoNovo=[];
 }
-/*
-A função desencriptar funciona com 3 variaveis pré definidas.
+//============================================================================
 
-ArrayEnc= array vazio que receberá o valor do textarea "campoResultado";
-textoEncriptado= array vazio que receberá o par de caracteres já encriptado;
-indiceAtual= valor numerico de 0 representando o indice que será modificado dinamicamente
 
-então partimos para a função propriamente dita, onde a variavel textoAtual recebe
-o valor da textArea, para que possamos usar o método split e a variavel arrayEnc á receber
 
-com arrayEnc já possuindo os caracteres em forma de array, no seu indice 0, ele recebe
-ele mesmo e o indice 1, logo após essa junção é passada para a variavel textoEncriptado
-
-entao é usado o metodo splice para que seja retirado de arrayEnc o indice 0 e 1
-*/
 let arrayEnc = [];
 let textoEncriptado=[];
 let indiceAtual = 0;
 
+
 function recebeTxtEncriptar(){
         textoAtual = campoResultado.value;
         arrayEnc = textoAtual.split("")
-        let numPares= arrayEnc.length;
 }
 function separaEmPares(){
+        let numPares= arrayEnc.length/2;
         for(let i=0; i < numPares; i++){
-               if (arrayEnc[0] !== undefined) {
+                if (arrayEnc[0] !== undefined) {
                         textoEncriptado[indiceAtual] = arrayEnc[0];
                         textoEncriptado[indiceAtual] += arrayEnc[1];
                         arrayEnc.shift();
@@ -144,99 +132,112 @@ function separaEmPares(){
         }
 }
 function descriptografar(){
-        for(let i= 0; i < arrayEnc.length; i++){
+        for(let i= 0; i < textoEncriptado.length; i++){
                 switch(true){
-                case arrayEnc[i] == "Za":
-                        arrayEnc[i]=("a")
+                case textoEncriptado[i] == "Za":
+                        textoEncriptado[i]=("a")
                         break;
-                case arrayEnc[i] == "Yb":
-                        arrayEnc[i]=("b")
+                case textoEncriptado[i] == "Yb":
+                        textoEncriptado[i]=("b")
                         break;
-                case arrayEnc[i] == "Xc":
-                        arrayEnc[i]=("c")
+                case textoEncriptado[i] == "Xc":
+                        textoEncriptado[i]=("c")
                         break;
-                case arrayEnc[i] == "Wd":
-                        arrayEnc[i]=("d")
+                case textoEncriptado[i] == "Wd":
+                        textoEncriptado[i]=("d")
                         break;
-                case arrayEnc[i] == "Ve":
-                        arrayEnc[i]=("e")
+                case textoEncriptado[i] == "Ve":
+                        textoEncriptado[i]=("e")
                         break;
-                case arrayEnc[i] == "Uf":
-                        arrayEnc[i]=("f")
+                case textoEncriptado[i] == "Uf":
+                        textoEncriptado[i]=("f")
                         break;
-                case arrayEnc[i] == "Tg":
-                        arrayEnc[i]=("g")
+                case textoEncriptado[i] == "Tg":
+                        textoEncriptado[i]=("g")
                         break;
-                case arrayEnc[i] == "Sh":
-                        arrayEnc[i]=("h")
+                case textoEncriptado[i] == "Sh":
+                        textoEncriptado[i]=("h")
                         break;
-                case arrayEnc[i] == "Ri":
-                        arrayEnc[i]=("i")
+                case textoEncriptado[i] == "Ri":
+                        textoEncriptado[i]=("i")
                         break;
-                case arrayEnc[i] == "Qj":
-                        arrayEnc[i]=("j")
+                case textoEncriptado[i] == "Qj":
+                        textoEncriptado[i]=("j")
                         break;
-                case arrayEnc[i] == "Pk":
-                        arrayEnc[i]=("k")
+                case textoEncriptado[i] == "Pk":
+                        textoEncriptado[i]=("k")
                         break;
-                case arrayEnc[i] == "Ol":
-                        arrayEnc[i]=("l")
+                case textoEncriptado[i] == "Ol":
+                        textoEncriptado[i]=("l")
                         break;
-                case arrayEnc[i] == "Nm":
-                        arrayEnc[i]=("m")
+                case textoEncriptado[i] == "Nm":
+                        textoEncriptado[i]=("m")
                         break;
-                case arrayEnc[i] == "Mn":
-                        arrayEnc[i]=("n")
+                case textoEncriptado[i] == "Mn":
+                        textoEncriptado[i]=("n")
                         break;
-                case arrayEnc[i] == "Lo":
-                        arrayEnc[i]=("o")
+                case textoEncriptado[i] == "Lo":
+                        textoEncriptado[i]=("o")
                         break;
-                case arrayEnc[i] == "Kp":
-                        arrayEnc[i]=("p")
+                case textoEncriptado[i] == "Kp":
+                        textoEncriptado[i]=("p")
                         break;
-                case arrayEnc[i] == "Jq":
-                        arrayEnc[i]=("q")
+                case textoEncriptado[i] == "Jq":
+                        textoEncriptado[i]=("q")
                         break;
-                case arrayEnc[i] == "Ir":
-                        arrayEnc[i]=("r")
+                case textoEncriptado[i] == "Ir":
+                        textoEncriptado[i]=("r")
                         break;
-                case arrayEnc[i] == "Hs":
-                        arrayEnc[i]=("s")
+                case textoEncriptado[i] == "Hs":
+                        textoEncriptado[i]=("s")
                         break;
-                case arrayEnc[i] == "Gt":
-                        arrayEnc[i]=("t")
+                case textoEncriptado[i] == "Gt":
+                        textoEncriptado[i]=("t")
                         break;
-                case arrayEnc[i] == "Fu":
-                        arrayEnc[i]=("u")
+                case textoEncriptado[i] == "Fu":
+                        textoEncriptado[i]=("u")
                         break;
-                case arrayEnc[i] == "Ev":
-                        arrayEnc[i]=("v")
+                case textoEncriptado[i] == "Ev":
+                        textoEncriptado[i]=("v")
                         break;
-                case arrayEnc[i] == "Dw":
-                        arrayEnc[i]=("w")
+                case textoEncriptado[i] == "Dw":
+                        textoEncriptado[i]=("w")
                         break;
-                case arrayEnc[i] == "Cx":
-                        arrayEnc[i]=("x")
+                case textoEncriptado[i] == "Cx":
+                        textoEncriptado[i]=("x")
                         break;
-                case arrayEnc[i] == "By":
-                        arrayEnc[i]=("y")
+                case textoEncriptado[i] == "By":
+                        textoEncriptado[i]=("y")
                         break;
-                case arrayEnc[i] == "Az":
-                        arrayEnc[i]=("z")
+                case textoEncriptado[i] == "Az":
+                        textoEncriptado[i]=("z")
                         break;
+                case textoEncriptado[i] == "OO":
+                        textoEncriptado[i]=(" ")
+                         break;
+                default:
+                        textoEncriptado="-Caracter invalido-";
                 }
         }
 }
 function mostraTextoDesencriptado(){
-        let txtDesencriptado = arrayEnc.toString();
+        let txtDesencriptado = textoEncriptado.toString();
         txtDesencriptado=txtDesencriptado.replace(/,/g,"")
-        campoResultado.value= txtDesencriptado;
+        campoResultado.value= txtDesencriptado.charAt(0).toUpperCase()+txtDesencriptado.slice(1);
+}
+function resetDesencript(){
+        if(campoResultado.value!==""){
+                arrayEnc=[];
+                textoEncriptado=[];
+                indiceAtual=0
+        }
 }
 btnEncrypt.addEventListener("click",encriptar);
-btnDcrypt.addEventListener("click", function(func1,func2,func3,func4){
+btnDcrypt.addEventListener("click", function(func1,func2,func3,func4,func5){
         recebeTxtEncriptar();
         separaEmPares();
         descriptografar();
         mostraTextoDesencriptado();
-        console.log(numPares);
+        resetDesencript();
+        
 });
