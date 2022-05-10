@@ -7,6 +7,7 @@ let textoAtual=""
 let textoNovo=[]
 
 const btnEncrypt = document.querySelectorAll("button")[0]
+const btnDcrypt = document.querySelectorAll("button")[1]
 
 
 /*A função abaixo recebe o valor do primeiro textarea e a armazena na 
@@ -103,12 +104,139 @@ function encriptar(){
             }
         let textoArray = textoNovo.toString()
         let textoFormatado = textoArray.replace(/,/g,"")
-        if(campoResultado.value==""){
+        campoResultado.value==""
             campoResultado.value=textoFormatado;
-        }else{
-            textoFormatado=""
-            campoResultado.value=textoFormatado
+            textoNovo=[];
+}
+/*
+A função desencriptar funciona com 3 variaveis pré definidas.
+
+ArrayEnc= array vazio que receberá o valor do textarea "campoResultado";
+textoEncriptado= array vazio que receberá o par de caracteres já encriptado;
+indiceAtual= valor numerico de 0 representando o indice que será modificado dinamicamente
+
+então partimos para a função propriamente dita, onde a variavel textoAtual recebe
+o valor da textArea, para que possamos usar o método split e a variavel arrayEnc á receber
+
+com arrayEnc já possuindo os caracteres em forma de array, no seu indice 0, ele recebe
+ele mesmo e o indice 1, logo após essa junção é passada para a variavel textoEncriptado
+
+entao é usado o metodo splice para que seja retirado de arrayEnc o indice 0 e 1
+*/
+let arrayEnc = [];
+let textoEncriptado=[];
+let indiceAtual = 0;
+
+function recebeTxtEncriptar(){
+        textoAtual = campoResultado.value;
+        arrayEnc = textoAtual.split("")
+        let numPares= arrayEnc.length;
+}
+function separaEmPares(){
+        for(let i=0; i < numPares; i++){
+               if (arrayEnc[0] !== undefined) {
+                        textoEncriptado[indiceAtual] = arrayEnc[0];
+                        textoEncriptado[indiceAtual] += arrayEnc[1];
+                        arrayEnc.shift();
+                        arrayEnc.shift();
+                        indiceAtual++;
+                        }
         }
 }
-
-btnEncrypt.addEventListener("click",encriptar)
+function descriptografar(){
+        for(let i= 0; i < arrayEnc.length; i++){
+                switch(true){
+                case arrayEnc[i] == "Za":
+                        arrayEnc[i]=("a")
+                        break;
+                case arrayEnc[i] == "Yb":
+                        arrayEnc[i]=("b")
+                        break;
+                case arrayEnc[i] == "Xc":
+                        arrayEnc[i]=("c")
+                        break;
+                case arrayEnc[i] == "Wd":
+                        arrayEnc[i]=("d")
+                        break;
+                case arrayEnc[i] == "Ve":
+                        arrayEnc[i]=("e")
+                        break;
+                case arrayEnc[i] == "Uf":
+                        arrayEnc[i]=("f")
+                        break;
+                case arrayEnc[i] == "Tg":
+                        arrayEnc[i]=("g")
+                        break;
+                case arrayEnc[i] == "Sh":
+                        arrayEnc[i]=("h")
+                        break;
+                case arrayEnc[i] == "Ri":
+                        arrayEnc[i]=("i")
+                        break;
+                case arrayEnc[i] == "Qj":
+                        arrayEnc[i]=("j")
+                        break;
+                case arrayEnc[i] == "Pk":
+                        arrayEnc[i]=("k")
+                        break;
+                case arrayEnc[i] == "Ol":
+                        arrayEnc[i]=("l")
+                        break;
+                case arrayEnc[i] == "Nm":
+                        arrayEnc[i]=("m")
+                        break;
+                case arrayEnc[i] == "Mn":
+                        arrayEnc[i]=("n")
+                        break;
+                case arrayEnc[i] == "Lo":
+                        arrayEnc[i]=("o")
+                        break;
+                case arrayEnc[i] == "Kp":
+                        arrayEnc[i]=("p")
+                        break;
+                case arrayEnc[i] == "Jq":
+                        arrayEnc[i]=("q")
+                        break;
+                case arrayEnc[i] == "Ir":
+                        arrayEnc[i]=("r")
+                        break;
+                case arrayEnc[i] == "Hs":
+                        arrayEnc[i]=("s")
+                        break;
+                case arrayEnc[i] == "Gt":
+                        arrayEnc[i]=("t")
+                        break;
+                case arrayEnc[i] == "Fu":
+                        arrayEnc[i]=("u")
+                        break;
+                case arrayEnc[i] == "Ev":
+                        arrayEnc[i]=("v")
+                        break;
+                case arrayEnc[i] == "Dw":
+                        arrayEnc[i]=("w")
+                        break;
+                case arrayEnc[i] == "Cx":
+                        arrayEnc[i]=("x")
+                        break;
+                case arrayEnc[i] == "By":
+                        arrayEnc[i]=("y")
+                        break;
+                case arrayEnc[i] == "Az":
+                        arrayEnc[i]=("z")
+                        break;
+                }
+        }
+}
+function mostraTextoDesencriptado(){
+        let txtDesencriptado = arrayEnc.toString();
+        txtDesencriptado=txtDesencriptado.replace(/,/g,"")
+        campoResultado.value= txtDesencriptado;
+}
+btnEncrypt.addEventListener("click",encriptar);
+btnDcrypt.addEventListener("click", function(func1,func2,func3,func4){
+        recebeTxtEncriptar();
+        separaEmPares();
+        descriptografar();
+        mostraTextoDesencriptado();
+        console.log(numPares);
+});
